@@ -1,0 +1,7 @@
+kmod-dbgsym_25-2_amd64.deb debug optional automatic=yes
+kmod_25-2_amd64.buildinfo admin important
+kmod_25-2_amd64.deb admin important
+libkmod-dev_25-2_amd64.deb libdevel optional
+libkmod2-dbgsym_25-2_amd64.deb debug optional automatic=yes
+libkmod2-udeb_25-2_amd64.udeb debian-installer important
+libkmod2_25-2_amd64.deb libs optional

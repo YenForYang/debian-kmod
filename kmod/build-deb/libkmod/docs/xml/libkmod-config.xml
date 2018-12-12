@@ -1,0 +1,337 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
+[
+  <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+  <!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="libkmod-libkmod-config">
+<refmeta>
+<refentrytitle role="top_of_page" id="libkmod-libkmod-config.top_of_page">libkmod-config</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBKMOD Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>libkmod-config</refname>
+<refpurpose>retrieve current libkmod configuration</refpurpose>
+</refnamediv>
+
+<refsect1 id="libkmod-libkmod-config.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type">struct <link linkend="kmod-config-iter"><returnvalue>kmod_config_iter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-config-get-blacklists">kmod_config_get_blacklists</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">struct <link linkend="kmod-config-iter"><returnvalue>kmod_config_iter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-config-get-install-commands">kmod_config_get_install_commands</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">struct <link linkend="kmod-config-iter"><returnvalue>kmod_config_iter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-config-get-remove-commands">kmod_config_get_remove_commands</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">struct <link linkend="kmod-config-iter"><returnvalue>kmod_config_iter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-config-get-aliases">kmod_config_get_aliases</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">struct <link linkend="kmod-config-iter"><returnvalue>kmod_config_iter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-config-get-options">kmod_config_get_options</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">struct <link linkend="kmod-config-iter"><returnvalue>kmod_config_iter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-config-get-softdeps">kmod_config_get_softdeps</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-config-iter-get-key">kmod_config_iter_get_key</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-config-iter-get-value">kmod_config_iter_get_value</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+</entry><entry role="function_name"><link linkend="kmod-config-iter-next">kmod_config_iter_next</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="kmod-config-iter-free-iter">kmod_config_iter_free_iter</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="libkmod-libkmod-config.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="kmod-config-iter">kmod_config_iter</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+
+<refsect1 id="libkmod-libkmod-config.description" role="desc">
+<title role="desc.title">Description</title>
+
+</refsect1>
+<refsect1 id="libkmod-libkmod-config.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="kmod-config-get-blacklists" role="function">
+<title>kmod_config_get_blacklists&#160;()</title>
+<indexterm zone="kmod-config-get-blacklists"><primary sortas="config_get_blacklists">kmod_config_get_blacklists</primary></indexterm>
+<programlisting language="C">struct <link linkend="kmod-config-iter"><returnvalue>kmod_config_iter</returnvalue></link>&#160;*
+kmod_config_get_blacklists (<parameter>const <type>struct kmod_ctx</type> *ctx</parameter>);</programlisting>
+<para>Retrieve an iterator to deal with the blacklist maintained inside the
+library. See <link linkend="kmod-config-iter-get-key"><function>kmod_config_iter_get_key()</function></link>, <link linkend="kmod-config-iter-get-value"><function>kmod_config_iter_get_value()</function></link> and
+<link linkend="kmod-config-iter-next"><function>kmod_config_iter_next()</function></link>. At least one call to <link linkend="kmod-config-iter-next"><function>kmod_config_iter_next()</function></link> must
+be made to initialize the iterator and check if it's valid.</para>
+<refsect3 id="kmod-config-get-blacklists.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-config-get-blacklists.returns" role="returns">
+<title>Returns</title>
+<para> a new iterator over the blacklists or NULL on failure. Free it
+with <link linkend="kmod-config-iter-free-iter"><function>kmod_config_iter_free_iter()</function></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-config-get-install-commands" role="function">
+<title>kmod_config_get_install_commands&#160;()</title>
+<indexterm zone="kmod-config-get-install-commands"><primary sortas="config_get_install_commands">kmod_config_get_install_commands</primary></indexterm>
+<programlisting language="C">struct <link linkend="kmod-config-iter"><returnvalue>kmod_config_iter</returnvalue></link>&#160;*
+kmod_config_get_install_commands (<parameter>const <type>struct kmod_ctx</type> *ctx</parameter>);</programlisting>
+<para>Retrieve an iterator to deal with the install commands maintained inside the
+library. See <link linkend="kmod-config-iter-get-key"><function>kmod_config_iter_get_key()</function></link>, <link linkend="kmod-config-iter-get-value"><function>kmod_config_iter_get_value()</function></link> and
+<link linkend="kmod-config-iter-next"><function>kmod_config_iter_next()</function></link>. At least one call to <link linkend="kmod-config-iter-next"><function>kmod_config_iter_next()</function></link> must
+be made to initialize the iterator and check if it's valid.</para>
+<refsect3 id="kmod-config-get-install-commands.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-config-get-install-commands.returns" role="returns">
+<title>Returns</title>
+<para> a new iterator over the install commands or NULL on failure. Free
+it with <link linkend="kmod-config-iter-free-iter"><function>kmod_config_iter_free_iter()</function></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-config-get-remove-commands" role="function">
+<title>kmod_config_get_remove_commands&#160;()</title>
+<indexterm zone="kmod-config-get-remove-commands"><primary sortas="config_get_remove_commands">kmod_config_get_remove_commands</primary></indexterm>
+<programlisting language="C">struct <link linkend="kmod-config-iter"><returnvalue>kmod_config_iter</returnvalue></link>&#160;*
+kmod_config_get_remove_commands (<parameter>const <type>struct kmod_ctx</type> *ctx</parameter>);</programlisting>
+<para>Retrieve an iterator to deal with the remove commands maintained inside the
+library. See <link linkend="kmod-config-iter-get-key"><function>kmod_config_iter_get_key()</function></link>, <link linkend="kmod-config-iter-get-value"><function>kmod_config_iter_get_value()</function></link> and
+<link linkend="kmod-config-iter-next"><function>kmod_config_iter_next()</function></link>. At least one call to <link linkend="kmod-config-iter-next"><function>kmod_config_iter_next()</function></link> must
+be made to initialize the iterator and check if it's valid.</para>
+<refsect3 id="kmod-config-get-remove-commands.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-config-get-remove-commands.returns" role="returns">
+<title>Returns</title>
+<para> a new iterator over the remove commands or NULL on failure. Free
+it with <link linkend="kmod-config-iter-free-iter"><function>kmod_config_iter_free_iter()</function></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-config-get-aliases" role="function">
+<title>kmod_config_get_aliases&#160;()</title>
+<indexterm zone="kmod-config-get-aliases"><primary sortas="config_get_aliases">kmod_config_get_aliases</primary></indexterm>
+<programlisting language="C">struct <link linkend="kmod-config-iter"><returnvalue>kmod_config_iter</returnvalue></link>&#160;*
+kmod_config_get_aliases (<parameter>const <type>struct kmod_ctx</type> *ctx</parameter>);</programlisting>
+<para>Retrieve an iterator to deal with the aliases maintained inside the
+library. See <link linkend="kmod-config-iter-get-key"><function>kmod_config_iter_get_key()</function></link>, <link linkend="kmod-config-iter-get-value"><function>kmod_config_iter_get_value()</function></link> and
+<link linkend="kmod-config-iter-next"><function>kmod_config_iter_next()</function></link>. At least one call to <link linkend="kmod-config-iter-next"><function>kmod_config_iter_next()</function></link> must
+be made to initialize the iterator and check if it's valid.</para>
+<refsect3 id="kmod-config-get-aliases.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-config-get-aliases.returns" role="returns">
+<title>Returns</title>
+<para> a new iterator over the aliases or NULL on failure. Free it with
+<link linkend="kmod-config-iter-free-iter"><function>kmod_config_iter_free_iter()</function></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-config-get-options" role="function">
+<title>kmod_config_get_options&#160;()</title>
+<indexterm zone="kmod-config-get-options"><primary sortas="config_get_options">kmod_config_get_options</primary></indexterm>
+<programlisting language="C">struct <link linkend="kmod-config-iter"><returnvalue>kmod_config_iter</returnvalue></link>&#160;*
+kmod_config_get_options (<parameter>const <type>struct kmod_ctx</type> *ctx</parameter>);</programlisting>
+<para>Retrieve an iterator to deal with the options maintained inside the
+library. See <link linkend="kmod-config-iter-get-key"><function>kmod_config_iter_get_key()</function></link>, <link linkend="kmod-config-iter-get-value"><function>kmod_config_iter_get_value()</function></link> and
+<link linkend="kmod-config-iter-next"><function>kmod_config_iter_next()</function></link>. At least one call to <link linkend="kmod-config-iter-next"><function>kmod_config_iter_next()</function></link> must
+be made to initialize the iterator and check if it's valid.</para>
+<refsect3 id="kmod-config-get-options.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-config-get-options.returns" role="returns">
+<title>Returns</title>
+<para> a new iterator over the options or NULL on failure. Free it with
+<link linkend="kmod-config-iter-free-iter"><function>kmod_config_iter_free_iter()</function></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-config-get-softdeps" role="function">
+<title>kmod_config_get_softdeps&#160;()</title>
+<indexterm zone="kmod-config-get-softdeps"><primary sortas="config_get_softdeps">kmod_config_get_softdeps</primary></indexterm>
+<programlisting language="C">struct <link linkend="kmod-config-iter"><returnvalue>kmod_config_iter</returnvalue></link>&#160;*
+kmod_config_get_softdeps (<parameter>const <type>struct kmod_ctx</type> *ctx</parameter>);</programlisting>
+<para>Retrieve an iterator to deal with the softdeps maintained inside the
+library. See <link linkend="kmod-config-iter-get-key"><function>kmod_config_iter_get_key()</function></link>, <link linkend="kmod-config-iter-get-value"><function>kmod_config_iter_get_value()</function></link> and
+<link linkend="kmod-config-iter-next"><function>kmod_config_iter_next()</function></link>. At least one call to <link linkend="kmod-config-iter-next"><function>kmod_config_iter_next()</function></link> must
+be made to initialize the iterator and check if it's valid.</para>
+<refsect3 id="kmod-config-get-softdeps.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-config-get-softdeps.returns" role="returns">
+<title>Returns</title>
+<para> a new iterator over the softdeps or NULL on failure. Free it with
+<link linkend="kmod-config-iter-free-iter"><function>kmod_config_iter_free_iter()</function></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-config-iter-get-key" role="function">
+<title>kmod_config_iter_get_key&#160;()</title>
+<indexterm zone="kmod-config-iter-get-key"><primary sortas="config_iter_get_key">kmod_config_iter_get_key</primary></indexterm>
+<programlisting language="C">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+kmod_config_iter_get_key (<parameter>const <type>struct kmod_config_iter</type> *iter</parameter>);</programlisting>
+<para>When using a new allocated iterator, user must perform a call to
+<link linkend="kmod-config-iter-next"><function>kmod_config_iter_next()</function></link> to initialize iterator's position and check if it's
+valid.</para>
+<refsect3 id="kmod-config-iter-get-key.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>iterator over a certain configuration</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-config-iter-get-key.returns" role="returns">
+<title>Returns</title>
+<para> the key of the current configuration pointed by <parameter>iter</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-config-iter-get-value" role="function">
+<title>kmod_config_iter_get_value&#160;()</title>
+<indexterm zone="kmod-config-iter-get-value"><primary sortas="config_iter_get_value">kmod_config_iter_get_value</primary></indexterm>
+<programlisting language="C">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+kmod_config_iter_get_value (<parameter>const <type>struct kmod_config_iter</type> *iter</parameter>);</programlisting>
+<para>When using a new allocated iterator, user must perform a call to
+<link linkend="kmod-config-iter-next"><function>kmod_config_iter_next()</function></link> to initialize iterator's position and check if it's
+valid.</para>
+<refsect3 id="kmod-config-iter-get-value.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>iterator over a certain configuration</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-config-iter-get-value.returns" role="returns">
+<title>Returns</title>
+<para> the value of the current configuration pointed by <parameter>iter</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-config-iter-next" role="function">
+<title>kmod_config_iter_next&#160;()</title>
+<indexterm zone="kmod-config-iter-next"><primary sortas="config_iter_next">kmod_config_iter_next</primary></indexterm>
+<programlisting language="C"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+kmod_config_iter_next (<parameter><type>struct kmod_config_iter</type> *iter</parameter>);</programlisting>
+<para>Make <parameter>iter</parameter>
+ point to the next item of a certain configuration. It's an
+automatically recycling iterator. When it reaches the end, false is
+returned; then if user wants to iterate again, it's sufficient to call this
+function once more.</para>
+<refsect3 id="kmod-config-iter-next.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>iterator over a certain configuration</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-config-iter-next.returns" role="returns">
+<title>Returns</title>
+<para> true if next position of <parameter>iter</parameter>
+is valid or false if its end is
+reached.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-config-iter-free-iter" role="function">
+<title>kmod_config_iter_free_iter&#160;()</title>
+<indexterm zone="kmod-config-iter-free-iter"><primary sortas="config_iter_free_iter">kmod_config_iter_free_iter</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+kmod_config_iter_free_iter (<parameter><type>struct kmod_config_iter</type> *iter</parameter>);</programlisting>
+<para>Free resources used by the iterator.</para>
+<refsect3 id="kmod-config-iter-free-iter.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>iterator over a certain configuration</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="libkmod-libkmod-config.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="kmod-config-iter" role="struct">
+<title>struct kmod_config_iter</title>
+<indexterm zone="kmod-config-iter"><primary sortas="config_iter">kmod_config_iter</primary></indexterm>
+<programlisting language="C">struct kmod_config_iter;</programlisting>
+</refsect2>
+
+</refsect1>
+
+</refentry>

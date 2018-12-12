@@ -1,0 +1,415 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
+[
+  <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+  <!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="libkmod-libkmod">
+<refmeta>
+<refentrytitle role="top_of_page" id="libkmod-libkmod.top_of_page">libkmod</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBKMOD Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>libkmod</refname>
+<refpurpose>libkmod context</refpurpose>
+</refnamediv>
+
+<refsect1 id="libkmod-libkmod.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type">struct <link linkend="kmod-ctx"><returnvalue>kmod_ctx</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-new">kmod_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">struct <link linkend="kmod-ctx"><returnvalue>kmod_ctx</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-ref">kmod_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">struct <link linkend="kmod-ctx"><returnvalue>kmod_ctx</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-unref">kmod_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="int"><returnvalue>int</returnvalue></link>
+</entry><entry role="function_name"><link linkend="kmod-load-resources">kmod_load_resources</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="kmod-unload-resources">kmod_unload_resources</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="int"><returnvalue>int</returnvalue></link>
+</entry><entry role="function_name"><link linkend="kmod-validate-resources">kmod_validate_resources</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="int"><returnvalue>int</returnvalue></link>
+</entry><entry role="function_name"><link linkend="kmod-dump-index">kmod_dump_index</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="kmod-set-log-priority">kmod_set_log_priority</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="int"><returnvalue>int</returnvalue></link>
+</entry><entry role="function_name"><link linkend="kmod-get-log-priority">kmod_get_log_priority</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="kmod-set-log-fn">kmod_set_log_fn</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-get-userdata">kmod_get_userdata</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="kmod-set-userdata">kmod_set_userdata</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="libkmod-libkmod.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="kmod-ctx">kmod_ctx</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+
+<refsect1 id="libkmod-libkmod.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The context contains the default values for the library user,
+and is passed to all library operations.</para>
+
+</refsect1>
+<refsect1 id="libkmod-libkmod.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="kmod-new" role="function">
+<title>kmod_new&#160;()</title>
+<indexterm zone="kmod-new"><primary sortas="new">kmod_new</primary></indexterm>
+<programlisting language="C">struct <link linkend="kmod-ctx"><returnvalue>kmod_ctx</returnvalue></link>&#160;*
+kmod_new (<parameter>const <link linkend="char"><type>char</type></link> *dirname</parameter>,
+          <parameter>const <link linkend="char"><type>char</type></link> * const *config_paths</parameter>);</programlisting>
+<para>Create kmod library context. This reads the kmod configuration
+and fills in the default values.</para>
+<para>The initial refcount is 1, and needs to be decremented to
+release the resources of the kmod library context.</para>
+<refsect3 id="kmod-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dirname</para></entry>
+<entry role="parameter_description"><para>what to consider as linux module's directory, if NULL
+defaults to /lib/modules/<literal>uname -r</literal>. If it's relative,
+it's treated as relative to the current working directory.
+Otherwise, give an absolute dirname.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>config_paths</para></entry>
+<entry role="parameter_description"><para>ordered array of paths (directories or files) where
+to load from user-defined configuration parameters such as
+alias, blacklists, commands (install, remove). If
+NULL defaults to /run/modprobe.d, /etc/modprobe.d and
+/lib/modprobe.d. Give an empty vector if configuration should
+not be read. This array must be null terminated.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-new.returns" role="returns">
+<title>Returns</title>
+<para> a new kmod library context</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-ref" role="function">
+<title>kmod_ref&#160;()</title>
+<indexterm zone="kmod-ref"><primary sortas="ref">kmod_ref</primary></indexterm>
+<programlisting language="C">struct <link linkend="kmod-ctx"><returnvalue>kmod_ctx</returnvalue></link>&#160;*
+kmod_ref (<parameter><type>struct kmod_ctx</type> *ctx</parameter>);</programlisting>
+<para>Take a reference of the kmod library context.</para>
+<refsect3 id="kmod-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-ref.returns" role="returns">
+<title>Returns</title>
+<para> the passed kmod library context</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-unref" role="function">
+<title>kmod_unref&#160;()</title>
+<indexterm zone="kmod-unref"><primary sortas="unref">kmod_unref</primary></indexterm>
+<programlisting language="C">struct <link linkend="kmod-ctx"><returnvalue>kmod_ctx</returnvalue></link>&#160;*
+kmod_unref (<parameter><type>struct kmod_ctx</type> *ctx</parameter>);</programlisting>
+<para>Drop a reference of the kmod library context. If the refcount
+reaches zero, the resources of the context will be released.</para>
+<refsect3 id="kmod-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-unref.returns" role="returns">
+<title>Returns</title>
+<para> the passed kmod library context or NULL if it's freed</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-load-resources" role="function">
+<title>kmod_load_resources&#160;()</title>
+<indexterm zone="kmod-load-resources"><primary sortas="load_resources">kmod_load_resources</primary></indexterm>
+<programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
+kmod_load_resources (<parameter><type>struct kmod_ctx</type> *ctx</parameter>);</programlisting>
+<para>Load indexes and keep them open in <parameter>ctx</parameter>
+. This way it's faster to lookup
+information within the indexes. If this function is not called before a
+search, the necessary index is always opened and closed.</para>
+<para>If user will do more than one or two lookups, insertions, deletions, most
+likely it's good to call this function first. Particularly in a daemon like
+udev that on bootup issues hundreds of calls to lookup the index, calling
+this function will speedup the searches.</para>
+<refsect3 id="kmod-load-resources.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-load-resources.returns" role="returns">
+<title>Returns</title>
+<para> 0 on success or &lt; 0 otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-unload-resources" role="function">
+<title>kmod_unload_resources&#160;()</title>
+<indexterm zone="kmod-unload-resources"><primary sortas="unload_resources">kmod_unload_resources</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+kmod_unload_resources (<parameter><type>struct kmod_ctx</type> *ctx</parameter>);</programlisting>
+<para>Unload all the indexes. This will free the resources to maintain the index
+open and all subsequent searches will need to open and close the index.</para>
+<para>User is free to call <link linkend="kmod-load-resources"><function>kmod_load_resources()</function></link> and <link linkend="kmod-unload-resources"><function>kmod_unload_resources()</function></link> as
+many times as wanted during the lifecycle of <parameter>ctx</parameter>
+. For example, if a daemon
+knows that when starting up it will lookup a lot of modules, it could call
+<link linkend="kmod-load-resources"><function>kmod_load_resources()</function></link> and after the first burst of searches is gone, it
+could free the resources by calling <link linkend="kmod-unload-resources"><function>kmod_unload_resources()</function></link>.</para>
+<refsect3 id="kmod-unload-resources.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-unload-resources.returns" role="returns">
+<title>Returns</title>
+<para> 0 on success or &lt; 0 otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-validate-resources" role="function">
+<title>kmod_validate_resources&#160;()</title>
+<indexterm zone="kmod-validate-resources"><primary sortas="validate_resources">kmod_validate_resources</primary></indexterm>
+<programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
+kmod_validate_resources (<parameter><type>struct kmod_ctx</type> *ctx</parameter>);</programlisting>
+<para>Check if indexes and configuration files changed on disk and the current
+context is not valid anymore.</para>
+<refsect3 id="kmod-validate-resources.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-validate-resources.returns" role="returns">
+<title>Returns</title>
+<para> KMOD_RESOURCES_OK if resources are still valid,
+KMOD_RESOURCES_MUST_RELOAD if it's sufficient to call
+<link linkend="kmod-unload-resources"><function>kmod_unload_resources()</function></link> and <link linkend="kmod-load-resources"><function>kmod_load_resources()</function></link> or
+KMOD_RESOURCES_MUST_RECREATE if <parameter>ctx</parameter>
+must be re-created.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-dump-index" role="function">
+<title>kmod_dump_index&#160;()</title>
+<indexterm zone="kmod-dump-index"><primary sortas="dump_index">kmod_dump_index</primary></indexterm>
+<programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
+kmod_dump_index (<parameter><type>struct kmod_ctx</type> *ctx</parameter>,
+                 <parameter><type>enum kmod_index</type> type</parameter>,
+                 <parameter><link linkend="int"><type>int</type></link> fd</parameter>);</programlisting>
+<para>Dump index to file descriptor. Note that this function doesn't use stdio.h
+so call <link linkend="fflush"><function>fflush()</function></link> before calling this function to be sure data is written in
+order.</para>
+<refsect3 id="kmod-dump-index.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>index to dump, valid indexes are
+KMOD_INDEX_MODULES_DEP: index of module dependencies;
+KMOD_INDEX_MODULES_ALIAS: index of module aliases;
+KMOD_INDEX_MODULES_SYMBOL: index of symbol aliases;
+KMOD_INDEX_MODULES_BUILTIN: index of builtin module.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>fd</para></entry>
+<entry role="parameter_description"><para>file descriptor to dump index to</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-dump-index.returns" role="returns">
+<title>Returns</title>
+<para> 0 on success or &lt; 0 otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-set-log-priority" role="function">
+<title>kmod_set_log_priority&#160;()</title>
+<indexterm zone="kmod-set-log-priority"><primary sortas="set_log_priority">kmod_set_log_priority</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+kmod_set_log_priority (<parameter><type>struct kmod_ctx</type> *ctx</parameter>,
+                       <parameter><link linkend="int"><type>int</type></link> priority</parameter>);</programlisting>
+<para>Set the current logging priority. The value controls which messages
+are logged.</para>
+<refsect3 id="kmod-set-log-priority.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>priority</para></entry>
+<entry role="parameter_description"><para>the new logging priority</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="kmod-get-log-priority" role="function">
+<title>kmod_get_log_priority&#160;()</title>
+<indexterm zone="kmod-get-log-priority"><primary sortas="get_log_priority">kmod_get_log_priority</primary></indexterm>
+<programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
+kmod_get_log_priority (<parameter>const <type>struct kmod_ctx</type> *ctx</parameter>);</programlisting>
+<refsect3 id="kmod-get-log-priority.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-get-log-priority.returns" role="returns">
+<title>Returns</title>
+<para> the current logging priority</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-set-log-fn" role="function">
+<title>kmod_set_log_fn&#160;()</title>
+<indexterm zone="kmod-set-log-fn"><primary sortas="set_log_fn">kmod_set_log_fn</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+kmod_set_log_fn (<parameter><type>struct kmod_ctx</type> *ctx</parameter>,
+                 <parameter><link linkend="void"><type>void</type></link> (*log_fn) (void *log_data, int priority, const char *file, int line, const char *fn, const char *format, va_list args)</parameter>,
+                 <parameter>const <link linkend="void"><type>void</type></link> *data</parameter>);</programlisting>
+<para>The built-in logging writes to stderr. It can be
+overridden by a custom function, to plug log messages
+into the user's logging functionality.</para>
+<refsect3 id="kmod-set-log-fn.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>log_fn</para></entry>
+<entry role="parameter_description"><para>function to be called for logging messages</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>data to pass to log function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="kmod-get-userdata" role="function">
+<title>kmod_get_userdata&#160;()</title>
+<indexterm zone="kmod-get-userdata"><primary sortas="get_userdata">kmod_get_userdata</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>&#160;*
+kmod_get_userdata (<parameter>const <type>struct kmod_ctx</type> *ctx</parameter>);</programlisting>
+<para>Retrieve stored data pointer from library context. This might be useful
+to access from callbacks.</para>
+<refsect3 id="kmod-get-userdata.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-get-userdata.returns" role="returns">
+<title>Returns</title>
+<para> stored userdata</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-set-userdata" role="function">
+<title>kmod_set_userdata&#160;()</title>
+<indexterm zone="kmod-set-userdata"><primary sortas="set_userdata">kmod_set_userdata</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+kmod_set_userdata (<parameter><type>struct kmod_ctx</type> *ctx</parameter>,
+                   <parameter>const <link linkend="void"><type>void</type></link> *userdata</parameter>);</programlisting>
+<para>Store custom <parameter>userdata</parameter>
+ in the library context.</para>
+<refsect3 id="kmod-set-userdata.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>userdata</para></entry>
+<entry role="parameter_description"><para>data pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="libkmod-libkmod.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="kmod-ctx" role="struct">
+<title>struct kmod_ctx</title>
+<indexterm zone="kmod-ctx"><primary sortas="ctx">kmod_ctx</primary></indexterm>
+<programlisting language="C">struct kmod_ctx;</programlisting>
+<para>Opaque object representing the library context.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,13 @@
+Package: libkmod2-dbgsym
+Source: kmod
+Version: 25-2
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Marco d'Itri <md@linux.it>
+Installed-Size: 108
+Depends: libkmod2 (= 25-2)
+Section: debug
+Priority: optional
+Multi-Arch: same
+Description: debug symbols for libkmod2
+Build-Ids: 36bee63af4d3da3244a793d1c3632a850c737057

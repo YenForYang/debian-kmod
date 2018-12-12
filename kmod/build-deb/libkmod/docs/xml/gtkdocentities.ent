@@ -1,0 +1,7 @@
+<!ENTITY package "kmod">
+<!ENTITY package_bugreport "linux-modules@vger.kernel.org">
+<!ENTITY package_name "kmod">
+<!ENTITY package_string "kmod 25">
+<!ENTITY package_tarname "kmod">
+<!ENTITY package_url "http://git.kernel.org/?p=utils/kernel/kmod/kmod.git">
+<!ENTITY package_version "25">

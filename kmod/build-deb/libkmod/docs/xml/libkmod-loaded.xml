@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
+[
+  <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+  <!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="libkmod-libkmod-loaded">
+<refmeta>
+<refentrytitle role="top_of_page" id="libkmod-libkmod-loaded.top_of_page">libkmod-loaded</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBKMOD Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>libkmod-loaded</refname>
+<refpurpose>currently loaded modules</refpurpose>
+</refnamediv>
+
+<refsect1 id="libkmod-libkmod-loaded.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="int"><returnvalue>int</returnvalue></link>
+</entry><entry role="function_name"><link linkend="kmod-module-new-from-loaded">kmod_module_new_from_loaded</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="int"><returnvalue>int</returnvalue></link>
+</entry><entry role="function_name"><link linkend="kmod-module-get-initstate">kmod_module_get_initstate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-module-initstate-str">kmod_module_initstate_str</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="long"><returnvalue>long</returnvalue></link>
+</entry><entry role="function_name"><link linkend="kmod-module-get-size">kmod_module_get_size</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="int"><returnvalue>int</returnvalue></link>
+</entry><entry role="function_name"><link linkend="kmod-module-get-refcnt">kmod_module_get_refcnt</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">struct <link linkend="kmod-list"><returnvalue>kmod_list</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-module-get-holders">kmod_module_get_holders</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+
+<refsect1 id="libkmod-libkmod-loaded.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Information about currently loaded modules, as reported by Linux kernel.
+These information are not cached by libkmod and are always read from /sys
+and /proc/modules.</para>
+
+</refsect1>
+<refsect1 id="libkmod-libkmod-loaded.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="kmod-module-new-from-loaded" role="function">
+<title>kmod_module_new_from_loaded&#160;()</title>
+<indexterm zone="kmod-module-new-from-loaded"><primary sortas="module_new_from_loaded">kmod_module_new_from_loaded</primary></indexterm>
+<programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
+kmod_module_new_from_loaded (<parameter><type>struct kmod_ctx</type> *ctx</parameter>,
+                             <parameter><type>struct kmod_list</type> **list</parameter>);</programlisting>
+<para>Create a new list of kmod modules with all modules currently loaded in
+kernel. It uses /proc/modules to get the names of loaded modules and to
+create kmod modules by calling <link linkend="kmod-module-new-from-name"><function>kmod_module_new_from_name()</function></link> in each of them.
+They are put in <parameter>list</parameter>
+ in no particular order.</para>
+<para>The initial refcount is 1, and needs to be decremented to release the
+resources of the kmod_module. The returned <parameter>list</parameter>
+ must be released by
+calling <link linkend="kmod-module-unref-list"><function>kmod_module_unref_list()</function></link>. Since libkmod keeps track of all
+kmod_modules created, they are all released upon <parameter>ctx</parameter>
+ destruction too. Do
+not unref <parameter>ctx</parameter>
+ before all the desired operations with the returned list are
+completed.</para>
+<refsect3 id="kmod-module-new-from-loaded.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ctx</para></entry>
+<entry role="parameter_description"><para>kmod library context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>where to save the list of loaded modules</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-module-new-from-loaded.returns" role="returns">
+<title>Returns</title>
+<para> 0 on success or &lt; 0 on error.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-module-get-initstate" role="function">
+<title>kmod_module_get_initstate&#160;()</title>
+<indexterm zone="kmod-module-get-initstate"><primary sortas="module_get_initstate">kmod_module_get_initstate</primary></indexterm>
+<programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
+kmod_module_get_initstate (<parameter>const <type>struct kmod_module</type> *mod</parameter>);</programlisting>
+<para>Get the initstate of this <parameter>mod</parameter>
+, as returned by Linux Kernel, by reading
+/sys filesystem.</para>
+<refsect3 id="kmod-module-get-initstate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mod</para></entry>
+<entry role="parameter_description"><para>kmod module</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-module-get-initstate.returns" role="returns">
+<title>Returns</title>
+<para> &lt; 0 on error or module state if module is found in kernel, valid states are
+KMOD_MODULE_BUILTIN: module is builtin;
+KMOD_MODULE_LIVE: module is live in kernel;
+KMOD_MODULE_COMING: module is being loaded;
+KMOD_MODULE_GOING: module is being unloaded.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-module-initstate-str" role="function">
+<title>kmod_module_initstate_str&#160;()</title>
+<indexterm zone="kmod-module-initstate-str"><primary sortas="module_initstate_str">kmod_module_initstate_str</primary></indexterm>
+<programlisting language="C">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+kmod_module_initstate_str (<parameter><type>enum kmod_module_initstate</type> state</parameter>);</programlisting>
+<para>Translate a initstate to a string.</para>
+<refsect3 id="kmod-module-initstate-str.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>state</para></entry>
+<entry role="parameter_description"><para>the state as returned by <link linkend="kmod-module-get-initstate"><function>kmod_module_get_initstate()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-module-initstate-str.returns" role="returns">
+<title>Returns</title>
+<para> the string associated to the <parameter>state</parameter>
+. This string is statically
+allocated, do not free it.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-module-get-size" role="function">
+<title>kmod_module_get_size&#160;()</title>
+<indexterm zone="kmod-module-get-size"><primary sortas="module_get_size">kmod_module_get_size</primary></indexterm>
+<programlisting language="C"><link linkend="long"><returnvalue>long</returnvalue></link>
+kmod_module_get_size (<parameter>const <type>struct kmod_module</type> *mod</parameter>);</programlisting>
+<para>Get the size of this kmod module as returned by Linux kernel. If supported,
+the size is read from the coresize attribute in /sys/module. For older
+kernels, this falls back on /proc/modules and searches for the specified
+module to get its size.</para>
+<refsect3 id="kmod-module-get-size.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mod</para></entry>
+<entry role="parameter_description"><para>kmod module</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-module-get-size.returns" role="returns">
+<title>Returns</title>
+<para> the size of this kmod module.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-module-get-refcnt" role="function">
+<title>kmod_module_get_refcnt&#160;()</title>
+<indexterm zone="kmod-module-get-refcnt"><primary sortas="module_get_refcnt">kmod_module_get_refcnt</primary></indexterm>
+<programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
+kmod_module_get_refcnt (<parameter>const <type>struct kmod_module</type> *mod</parameter>);</programlisting>
+<para>Get the ref count of this <parameter>mod</parameter>
+, as returned by Linux Kernel, by reading
+/sys filesystem.</para>
+<refsect3 id="kmod-module-get-refcnt.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mod</para></entry>
+<entry role="parameter_description"><para>kmod module</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-module-get-refcnt.returns" role="returns">
+<title>Returns</title>
+<para> the reference count on success or &lt; 0 on failure.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-module-get-holders" role="function">
+<title>kmod_module_get_holders&#160;()</title>
+<indexterm zone="kmod-module-get-holders"><primary sortas="module_get_holders">kmod_module_get_holders</primary></indexterm>
+<programlisting language="C">struct <link linkend="kmod-list"><returnvalue>kmod_list</returnvalue></link>&#160;*
+kmod_module_get_holders (<parameter>const <type>struct kmod_module</type> *mod</parameter>);</programlisting>
+<para>Get a list of kmod modules that are holding this <parameter>mod</parameter>
+, as returned by Linux
+Kernel. After use, free the <parameter>list</parameter>
+ by calling <link linkend="kmod-module-unref-list"><function>kmod_module_unref_list()</function></link>.</para>
+<refsect3 id="kmod-module-get-holders.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mod</para></entry>
+<entry role="parameter_description"><para>kmod module</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-module-get-holders.returns" role="returns">
+<title>Returns</title>
+<para> a new list of kmod modules on success or NULL on failure.</para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="libkmod-libkmod-loaded.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+
+</refentry>

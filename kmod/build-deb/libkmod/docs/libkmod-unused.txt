@@ -1,0 +1,9 @@
+kmod_filter
+kmod_get_dirname
+kmod_index
+kmod_insert
+kmod_module_initstate
+kmod_probe
+kmod_remove
+kmod_resources
+kmod_symbol_bind

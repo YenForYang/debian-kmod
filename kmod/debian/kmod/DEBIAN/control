@@ -1,0 +1,14 @@
+Package: kmod
+Version: 25-2
+Architecture: amd64
+Maintainer: Marco d'Itri <md@linux.it>
+Installed-Size: 384
+Depends: libc6 (>= 2.17), liblzma5 (>= 5.1.1alpha+20120614), libkmod2 (= 25-2), lsb-base
+Breaks: alsa-base (<= 1.0.25+3), oss-compat (= 4)
+Section: admin
+Priority: important
+Multi-Arch: foreign
+Description: tools for managing Linux kernel modules
+ This package contains a set of programs for loading, inserting, and
+ removing kernel modules for Linux.
+ It replaces module-init-tools.

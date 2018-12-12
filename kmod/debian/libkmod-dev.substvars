@@ -1,0 +1,2 @@
+misc:Depends=libkmod2 (= ${binary:Version})
+misc:Pre-Depends=

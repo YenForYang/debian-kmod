@@ -1,0 +1,13 @@
+Package: libkmod-dev
+Source: kmod
+Version: 25-2
+Architecture: amd64
+Maintainer: Marco d'Itri <md@linux.it>
+Installed-Size: 236
+Depends: libkmod2 (= 25-2)
+Section: libdevel
+Priority: optional
+Multi-Arch: same
+Description: libkmod development files
+ This package contains the files needed for developing applications that
+ use libkmod.

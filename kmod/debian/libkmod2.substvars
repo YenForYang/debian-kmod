@@ -1,0 +1,3 @@
+shlibs:Depends=libc6 (>= 2.17), liblzma5 (>= 5.1.1alpha+20120614)
+misc:Depends=
+misc:Pre-Depends=

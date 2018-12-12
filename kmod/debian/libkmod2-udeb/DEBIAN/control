@@ -1,0 +1,11 @@
+Package: libkmod2-udeb
+Source: kmod
+Version: 25-2
+Architecture: amd64
+Maintainer: Marco d'Itri <md@linux.it>
+Installed-Size: 145
+Depends: libc6-udeb (>= 2.27)
+Section: debian-installer
+Priority: important
+Description: libkmod shared library
+ This is a minimal version of libkmod2, only for use in the installation system.

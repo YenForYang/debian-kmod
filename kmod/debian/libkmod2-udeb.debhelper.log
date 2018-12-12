@@ -1,0 +1,17 @@
+dh_autoreconf
+dh_prep
+dh_movefiles
+dh_installdirs
+dh_installchangelogs
+dh_installman
+dh_installinit
+dh_link
+dh_strip
+dh_compress
+dh_fixperms
+dh_makeshlibs
+dh_shlibdeps
+dh_installdeb
+dh_gencontrol
+dh_md5sums
+dh_builddeb

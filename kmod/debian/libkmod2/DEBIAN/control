@@ -1,0 +1,13 @@
+Package: libkmod2
+Source: kmod
+Version: 25-2
+Architecture: amd64
+Maintainer: Marco d'Itri <md@linux.it>
+Installed-Size: 263
+Depends: libc6 (>= 2.17), liblzma5 (>= 5.1.1alpha+20120614)
+Section: libs
+Priority: optional
+Multi-Arch: same
+Description: libkmod shared library
+ This library provides an API for insertion, removal, configuration and
+ listing of kernel modules.

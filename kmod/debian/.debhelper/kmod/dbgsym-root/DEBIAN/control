@@ -1,0 +1,12 @@
+Package: kmod-dbgsym
+Source: kmod
+Version: 25-2
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Marco d'Itri <md@linux.it>
+Installed-Size: 167
+Depends: kmod (= 25-2)
+Section: debug
+Priority: optional
+Description: debug symbols for kmod
+Build-Ids: 425a705ee75b597096c7527433a83bc3f7a5e7af

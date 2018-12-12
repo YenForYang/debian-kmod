@@ -1,0 +1,45 @@
+Format: 1.8
+Date: Sat, 17 Nov 2018 01:56:00 +0100
+Source: kmod
+Binary: kmod libkmod2 libkmod-dev libkmod2-udeb
+Built-For-Profiles: nobiarch nocheck nodoc
+Architecture: amd64
+Version: 25-2
+Distribution: unstable
+Urgency: medium
+Maintainer: Marco d'Itri <md@linux.it>
+Changed-By: Marco d'Itri <md@linux.it>
+Description:
+ kmod       - tools for managing Linux kernel modules
+ libkmod-dev - libkmod development files
+ libkmod2   - libkmod shared library
+ libkmod2-udeb - libkmod shared library (udeb)
+Closes: 894566
+Changes:
+ kmod (25-2) unstable; urgency=medium
+ .
+   * Moved the libraries to /usr/lib/. (Closes: #894566)
+Checksums-Sha1:
+ 6cf25e00b372fb75d456a140dcb33b4c62e49aca 141208 kmod-dbgsym_25-2_amd64.deb
+ 9e0daa914bd2a0388a32912b6452dbfb3cb4d066 7186 kmod_25-2_amd64.buildinfo
+ 2db08b8fb421de34ef38323ef03854634c23870d 126924 kmod_25-2_amd64.deb
+ 3614e6e5ad510e2706e0291655b3319cf5c5c7d0 22052 libkmod-dev_25-2_amd64.deb
+ 41e74eb42b1c638796f1d63afabcffb33bd19360 85176 libkmod2-dbgsym_25-2_amd64.deb
+ 926a8162459253dd844dfce22c4eb2863e707610 56576 libkmod2-udeb_25-2_amd64.udeb
+ fb3444a6c1c558ccb993b39232511c602769e92b 79860 libkmod2_25-2_amd64.deb
+Checksums-Sha256:
+ 66c221fd2888b25c71591820b47132db2812b77dcd89c5a7d6ff6634a69a3b9e 141208 kmod-dbgsym_25-2_amd64.deb
+ 4ebc17223c1dedd115a9bf021ce6960ff45c62d04982fa96987e1684fc5f9f1f 7186 kmod_25-2_amd64.buildinfo
+ e96e4552251411c0ef429df3c1df7e985ccf6d59dc4c02ce3f86a3f30c1d4b57 126924 kmod_25-2_amd64.deb
+ 7cd6cd23414393534c009f1cdaf40e9ddb7501db9c90c0720856913bbbd08dff 22052 libkmod-dev_25-2_amd64.deb
+ a934937d32872a6c6d455b96d4f6c78166d88168fe4716f225c80c65bcfdaeab 85176 libkmod2-dbgsym_25-2_amd64.deb
+ 36e1919931c20ff9a8b7f8d0d53060d113622acb06361efee8201b001c843622 56576 libkmod2-udeb_25-2_amd64.udeb
+ efbea7ada0a1a86f7810eb30263528763eb8c9db59b8fb63ec6835b66beec96c 79860 libkmod2_25-2_amd64.deb
+Files:
+ 5563f9673dcfc8a291d86eb0ea5810de 141208 debug optional kmod-dbgsym_25-2_amd64.deb
+ 736ce75b44a719d758475e002d6ecefe 7186 admin important kmod_25-2_amd64.buildinfo
+ a8b60fa63645e1a87b23148d914c69df 126924 admin important kmod_25-2_amd64.deb
+ 2e2f1da95db96893bd73b30fe7b7a1d9 22052 libdevel optional libkmod-dev_25-2_amd64.deb
+ dba35dc02b7331b7a2070c9ed81dd048 85176 debug optional libkmod2-dbgsym_25-2_amd64.deb
+ 41d1a906c94b442f36d5678137a34cb9 56576 debian-installer important libkmod2-udeb_25-2_amd64.udeb
+ abad801d5f15df7f857639327b3c883e 79860 libs optional libkmod2_25-2_amd64.deb

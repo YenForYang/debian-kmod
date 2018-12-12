@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
+[
+  <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+  <!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="libkmod-libkmod-list">
+<refmeta>
+<refentrytitle role="top_of_page" id="libkmod-libkmod-list.top_of_page">libkmod-list</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBKMOD Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>libkmod-list</refname>
+<refpurpose>general purpose list</refpurpose>
+</refnamediv>
+
+<refsect1 id="libkmod-libkmod-list.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="kmod-list-foreach">kmod_list_foreach</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="kmod-list-foreach-reverse">kmod_list_foreach_reverse</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">struct <link linkend="kmod-list"><returnvalue>kmod_list</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-list-last">kmod_list_last</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">struct <link linkend="kmod-list"><returnvalue>kmod_list</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-list-next">kmod_list_next</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">struct <link linkend="kmod-list"><returnvalue>kmod_list</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="kmod-list-prev">kmod_list_prev</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="libkmod-libkmod-list.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="kmod-list">kmod_list</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+
+<refsect1 id="libkmod-libkmod-list.description" role="desc">
+<title role="desc.title">Description</title>
+
+</refsect1>
+<refsect1 id="libkmod-libkmod-list.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="kmod-list-foreach" role="macro">
+<title>kmod_list_foreach()</title>
+<indexterm zone="kmod-list-foreach"><primary sortas="list_foreach">kmod_list_foreach</primary></indexterm>
+<programlisting language="C">#define             kmod_list_foreach(list_entry, first_entry)</programlisting>
+</refsect2>
+<refsect2 id="kmod-list-foreach-reverse" role="macro">
+<title>kmod_list_foreach_reverse()</title>
+<indexterm zone="kmod-list-foreach-reverse"><primary sortas="list_foreach_reverse">kmod_list_foreach_reverse</primary></indexterm>
+<programlisting language="C">#define             kmod_list_foreach_reverse(list_entry, first_entry)</programlisting>
+</refsect2>
+<refsect2 id="kmod-list-last" role="function">
+<title>kmod_list_last&#160;()</title>
+<indexterm zone="kmod-list-last"><primary sortas="list_last">kmod_list_last</primary></indexterm>
+<programlisting language="C">struct <link linkend="kmod-list"><returnvalue>kmod_list</returnvalue></link>&#160;*
+kmod_list_last (<parameter>const <type>struct kmod_list</type> *list</parameter>);</programlisting>
+<para>Get the last element of the <parameter>list</parameter>
+. As <parameter>list</parameter>
+ is a circular list,
+this is a cheap operation O(1) with the last element being the
+previous element.</para>
+<para>If the list has a single element it will return the list itself (as
+expected, and this is what differentiates from <link linkend="kmod-list-prev"><function>kmod_list_prev()</function></link>).</para>
+<refsect3 id="kmod-list-last.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>the head of the list</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-list-last.returns" role="returns">
+<title>Returns</title>
+<para> last node at <parameter>list</parameter>
+or NULL if the list is empty.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-list-next" role="function">
+<title>kmod_list_next&#160;()</title>
+<indexterm zone="kmod-list-next"><primary sortas="list_next">kmod_list_next</primary></indexterm>
+<programlisting language="C">struct <link linkend="kmod-list"><returnvalue>kmod_list</returnvalue></link>&#160;*
+kmod_list_next (<parameter>const <type>struct kmod_list</type> *list</parameter>,
+                <parameter>const <type>struct kmod_list</type> *curr</parameter>);</programlisting>
+<para>Get the next node in <parameter>list</parameter>
+ relative to <parameter>curr</parameter>
+ as if <parameter>list</parameter>
+ was not a circular
+list. I.e. calling this function in the last node of the list returns
+NULL.. It can be used to iterate a list by checking for NULL return to know
+when all elements were iterated.</para>
+<refsect3 id="kmod-list-next.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>the head of the list</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>curr</para></entry>
+<entry role="parameter_description"><para>the current node in the list</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-list-next.returns" role="returns">
+<title>Returns</title>
+<para> node next to <parameter>curr</parameter>
+or NULL if either this node is the last of or
+list is empty.</para>
+</refsect3></refsect2>
+<refsect2 id="kmod-list-prev" role="function">
+<title>kmod_list_prev&#160;()</title>
+<indexterm zone="kmod-list-prev"><primary sortas="list_prev">kmod_list_prev</primary></indexterm>
+<programlisting language="C">struct <link linkend="kmod-list"><returnvalue>kmod_list</returnvalue></link>&#160;*
+kmod_list_prev (<parameter>const <type>struct kmod_list</type> *list</parameter>,
+                <parameter>const <type>struct kmod_list</type> *curr</parameter>);</programlisting>
+<para>Get the previous node in <parameter>list</parameter>
+ relative to <parameter>curr</parameter>
+ as if <parameter>list</parameter>
+ was not a
+circular list. I.e.: the previous of the head is NULL. It can be used to
+iterate a list by checking for NULL return to know when all elements were
+iterated.</para>
+<refsect3 id="kmod-list-prev.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>the head of the list</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>curr</para></entry>
+<entry role="parameter_description"><para>the current node in the list</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="kmod-list-prev.returns" role="returns">
+<title>Returns</title>
+<para> node previous to <parameter>curr</parameter>
+or NULL if either this node is the head of
+the list or the list is empty.</para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="libkmod-libkmod-list.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="kmod-list" role="struct">
+<title>struct kmod_list</title>
+<indexterm zone="kmod-list"><primary sortas="list">kmod_list</primary></indexterm>
+<programlisting language="C">struct kmod_list;</programlisting>
+</refsect2>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE indexdiv PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
+[
+  <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+  <!ENTITY version SYSTEM "version.xml">
+]>
+<indexdiv id="api-index-full">
+<indexdiv><title>C</title>
+<indexentry><primaryie linkends="kmod-config-get-aliases"><link linkend="kmod-config-get-aliases">kmod_config_get_aliases</link>, function in <link linkend="libkmod-libkmod-config">libkmod-config</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-config-get-blacklists"><link linkend="kmod-config-get-blacklists">kmod_config_get_blacklists</link>, function in <link linkend="libkmod-libkmod-config">libkmod-config</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-config-get-install-commands"><link linkend="kmod-config-get-install-commands">kmod_config_get_install_commands</link>, function in <link linkend="libkmod-libkmod-config">libkmod-config</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-config-get-options"><link linkend="kmod-config-get-options">kmod_config_get_options</link>, function in <link linkend="libkmod-libkmod-config">libkmod-config</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-config-get-remove-commands"><link linkend="kmod-config-get-remove-commands">kmod_config_get_remove_commands</link>, function in <link linkend="libkmod-libkmod-config">libkmod-config</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-config-get-softdeps"><link linkend="kmod-config-get-softdeps">kmod_config_get_softdeps</link>, function in <link linkend="libkmod-libkmod-config">libkmod-config</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-config-iter"><link linkend="kmod-config-iter">kmod_config_iter</link>, struct in <link linkend="libkmod-libkmod-config">libkmod-config</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-config-iter-free-iter"><link linkend="kmod-config-iter-free-iter">kmod_config_iter_free_iter</link>, function in <link linkend="libkmod-libkmod-config">libkmod-config</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-config-iter-get-key"><link linkend="kmod-config-iter-get-key">kmod_config_iter_get_key</link>, function in <link linkend="libkmod-libkmod-config">libkmod-config</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-config-iter-get-value"><link linkend="kmod-config-iter-get-value">kmod_config_iter_get_value</link>, function in <link linkend="libkmod-libkmod-config">libkmod-config</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-config-iter-next"><link linkend="kmod-config-iter-next">kmod_config_iter_next</link>, function in <link linkend="libkmod-libkmod-config">libkmod-config</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-ctx"><link linkend="kmod-ctx">kmod_ctx</link>, struct in <link linkend="libkmod-libkmod">libkmod</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>D</title>
+<indexentry><primaryie linkends="kmod-dump-index"><link linkend="kmod-dump-index">kmod_dump_index</link>, function in <link linkend="libkmod-libkmod">libkmod</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>G</title>
+<indexentry><primaryie linkends="kmod-get-log-priority"><link linkend="kmod-get-log-priority">kmod_get_log_priority</link>, function in <link linkend="libkmod-libkmod">libkmod</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-get-userdata"><link linkend="kmod-get-userdata">kmod_get_userdata</link>, function in <link linkend="libkmod-libkmod">libkmod</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>L</title>
+<indexentry><primaryie linkends="kmod-list"><link linkend="kmod-list">kmod_list</link>, struct in <link linkend="libkmod-libkmod-list">libkmod-list</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-list-foreach"><link linkend="kmod-list-foreach">kmod_list_foreach</link>, macro in <link linkend="libkmod-libkmod-list">libkmod-list</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-list-foreach-reverse"><link linkend="kmod-list-foreach-reverse">kmod_list_foreach_reverse</link>, macro in <link linkend="libkmod-libkmod-list">libkmod-list</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-list-last"><link linkend="kmod-list-last">kmod_list_last</link>, function in <link linkend="libkmod-libkmod-list">libkmod-list</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-list-next"><link linkend="kmod-list-next">kmod_list_next</link>, function in <link linkend="libkmod-libkmod-list">libkmod-list</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-list-prev"><link linkend="kmod-list-prev">kmod_list_prev</link>, function in <link linkend="libkmod-libkmod-list">libkmod-list</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-load-resources"><link linkend="kmod-load-resources">kmod_load_resources</link>, function in <link linkend="libkmod-libkmod">libkmod</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>M</title>
+<indexentry><primaryie linkends="kmod-module"><link linkend="kmod-module">kmod_module</link>, struct in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-apply-filter"><link linkend="kmod-module-apply-filter">kmod_module_apply_filter</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-dependency-symbols-free-list"><link linkend="kmod-module-dependency-symbols-free-list">kmod_module_dependency_symbols_free_list</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-dependency-symbol-get-bind"><link linkend="kmod-module-dependency-symbol-get-bind">kmod_module_dependency_symbol_get_bind</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-dependency-symbol-get-crc"><link linkend="kmod-module-dependency-symbol-get-crc">kmod_module_dependency_symbol_get_crc</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-dependency-symbol-get-symbol"><link linkend="kmod-module-dependency-symbol-get-symbol">kmod_module_dependency_symbol_get_symbol</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-dependencies"><link linkend="kmod-module-get-dependencies">kmod_module_get_dependencies</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-dependency-symbols"><link linkend="kmod-module-get-dependency-symbols">kmod_module_get_dependency_symbols</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-filtered-blacklist"><link linkend="kmod-module-get-filtered-blacklist">kmod_module_get_filtered_blacklist</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-holders"><link linkend="kmod-module-get-holders">kmod_module_get_holders</link>, function in <link linkend="libkmod-libkmod-loaded">libkmod-loaded</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-info"><link linkend="kmod-module-get-info">kmod_module_get_info</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-initstate"><link linkend="kmod-module-get-initstate">kmod_module_get_initstate</link>, function in <link linkend="libkmod-libkmod-loaded">libkmod-loaded</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-install-commands"><link linkend="kmod-module-get-install-commands">kmod_module_get_install_commands</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-module"><link linkend="kmod-module-get-module">kmod_module_get_module</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-name"><link linkend="kmod-module-get-name">kmod_module_get_name</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-options"><link linkend="kmod-module-get-options">kmod_module_get_options</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-path"><link linkend="kmod-module-get-path">kmod_module_get_path</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-refcnt"><link linkend="kmod-module-get-refcnt">kmod_module_get_refcnt</link>, function in <link linkend="libkmod-libkmod-loaded">libkmod-loaded</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-remove-commands"><link linkend="kmod-module-get-remove-commands">kmod_module_get_remove_commands</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-sections"><link linkend="kmod-module-get-sections">kmod_module_get_sections</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-size"><link linkend="kmod-module-get-size">kmod_module_get_size</link>, function in <link linkend="libkmod-libkmod-loaded">libkmod-loaded</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-softdeps"><link linkend="kmod-module-get-softdeps">kmod_module_get_softdeps</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-symbols"><link linkend="kmod-module-get-symbols">kmod_module_get_symbols</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-get-versions"><link linkend="kmod-module-get-versions">kmod_module_get_versions</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-info-free-list"><link linkend="kmod-module-info-free-list">kmod_module_info_free_list</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-info-get-key"><link linkend="kmod-module-info-get-key">kmod_module_info_get_key</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-info-get-value"><link linkend="kmod-module-info-get-value">kmod_module_info_get_value</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-initstate-str"><link linkend="kmod-module-initstate-str">kmod_module_initstate_str</link>, function in <link linkend="libkmod-libkmod-loaded">libkmod-loaded</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-insert-module"><link linkend="kmod-module-insert-module">kmod_module_insert_module</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-new-from-loaded"><link linkend="kmod-module-new-from-loaded">kmod_module_new_from_loaded</link>, function in <link linkend="libkmod-libkmod-loaded">libkmod-loaded</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-new-from-lookup"><link linkend="kmod-module-new-from-lookup">kmod_module_new_from_lookup</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-new-from-name"><link linkend="kmod-module-new-from-name">kmod_module_new_from_name</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-new-from-path"><link linkend="kmod-module-new-from-path">kmod_module_new_from_path</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-probe-insert-module"><link linkend="kmod-module-probe-insert-module">kmod_module_probe_insert_module</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-ref"><link linkend="kmod-module-ref">kmod_module_ref</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-remove-module"><link linkend="kmod-module-remove-module">kmod_module_remove_module</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-section-free-list"><link linkend="kmod-module-section-free-list">kmod_module_section_free_list</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-section-get-address"><link linkend="kmod-module-section-get-address">kmod_module_section_get_address</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-section-get-name"><link linkend="kmod-module-section-get-name">kmod_module_section_get_name</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-symbols-free-list"><link linkend="kmod-module-symbols-free-list">kmod_module_symbols_free_list</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-symbol-get-crc"><link linkend="kmod-module-symbol-get-crc">kmod_module_symbol_get_crc</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-symbol-get-symbol"><link linkend="kmod-module-symbol-get-symbol">kmod_module_symbol_get_symbol</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-unref"><link linkend="kmod-module-unref">kmod_module_unref</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-unref-list"><link linkend="kmod-module-unref-list">kmod_module_unref_list</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-versions-free-list"><link linkend="kmod-module-versions-free-list">kmod_module_versions_free_list</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-version-get-crc"><link linkend="kmod-module-version-get-crc">kmod_module_version_get_crc</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-module-version-get-symbol"><link linkend="kmod-module-version-get-symbol">kmod_module_version_get_symbol</link>, function in <link linkend="libkmod-libkmod-module">libkmod-module</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>N</title>
+<indexentry><primaryie linkends="kmod-new"><link linkend="kmod-new">kmod_new</link>, function in <link linkend="libkmod-libkmod">libkmod</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>R</title>
+<indexentry><primaryie linkends="kmod-ref"><link linkend="kmod-ref">kmod_ref</link>, function in <link linkend="libkmod-libkmod">libkmod</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>S</title>
+<indexentry><primaryie linkends="kmod-set-log-fn"><link linkend="kmod-set-log-fn">kmod_set_log_fn</link>, function in <link linkend="libkmod-libkmod">libkmod</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-set-log-priority"><link linkend="kmod-set-log-priority">kmod_set_log_priority</link>, function in <link linkend="libkmod-libkmod">libkmod</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-set-userdata"><link linkend="kmod-set-userdata">kmod_set_userdata</link>, function in <link linkend="libkmod-libkmod">libkmod</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>U</title>
+<indexentry><primaryie linkends="kmod-unload-resources"><link linkend="kmod-unload-resources">kmod_unload_resources</link>, function in <link linkend="libkmod-libkmod">libkmod</link></primaryie></indexentry>
+<indexentry><primaryie linkends="kmod-unref"><link linkend="kmod-unref">kmod_unref</link>, function in <link linkend="libkmod-libkmod">libkmod</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>V</title>
+<indexentry><primaryie linkends="kmod-validate-resources"><link linkend="kmod-validate-resources">kmod_validate_resources</link>, function in <link linkend="libkmod-libkmod">libkmod</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>
